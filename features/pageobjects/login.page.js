@@ -16,5 +16,10 @@ class LoginPage extends Page {
     await (await this.inputPassword).setValue(password);
     await (await this.btnLogin).click();
   }
+  open(){
+    return super.open('') 
+    //open('') - потому ,что ссылка обычная 
+   
+}
 }
 export default new LoginPage();
