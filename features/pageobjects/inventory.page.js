@@ -15,7 +15,12 @@ class InventoryPage extends Page {
   get itemPriceList() {
     return $$(".inventory_item_price");
   }
-
+  get itemNameList(){
+      return $$('.inventory_item_name')
+  }
+  get productPageItemName(){
+      return $('.inventory_details_name.large_size')
+  }
   //этот метод берет массив элементов как параметр и возвращает массив текстов содержащиеся в этих элементах
   async getItemText(arrayElem) {
     const itemText = arrayElem.map(async (elem) => await elem.getText());
@@ -31,6 +36,9 @@ class InventoryPage extends Page {
   }
   async itemPriceListText(){
       return await this.getItemText(await this.itemPriceList)
+  }
+  async itemNameListText(){
+      return await this.getItemText(await this.itemNameList)
   }
 }
 export default new InventoryPage();

@@ -39,6 +39,24 @@ When(/^I login as (\w+\_*\w+)$/, async (user) => { //(\w+\_*\w+) - после к
       let itemPriceListText = await InventoryPage.itemPriceListText();
       expect(itemPriceListText.filter(el => el[0] === '$' && Number(el.slice(1) > 0)).length).to.equal(itemPriceListText.length);
  });
+ Then(/^On each item i see name$/, async ( ) => {
+    let itemNameListText = await InventoryPage.itemNameListText();
+    expect(itemNameListText.filter(el => el.length > 0).length).to.equal(itemNameListText.length);
+});
+Then(/^I clicked on each item and I see correct item page$/, async ( ) => {
+   const itemNameList = await InventoryPage.itemNameList;
+   for (let product of itemNameList){
+    const InventoryPageProductText = await product.getText();
+    await product.click()
+    const productPageItemName = await InventoryPage.productPageItemName;
+    const productPageProductText = await productPageItemName.getText();
+    expect (InventoryPageProductText).to.equal(productPageProductText);
+    await InventoryPage.open();
+   }
+   
+});
+
+
 
 
  

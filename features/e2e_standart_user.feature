@@ -20,4 +20,10 @@ Feature: End to End test for standart user
     Scenario: Once on the Inventory Page, validate that all items have price
         Then Each item I see price more then zero
 
+    Scenario: Validate that all items have names
+        Then On each item i see name
+
+    Scenario: Click on each product and check the target page is valid
+        Then I clicked on each item and I see correct item page
+
 
