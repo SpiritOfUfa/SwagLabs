@@ -2,6 +2,7 @@ import { Given, When, Then } from "@cucumber/cucumber";
 import LoginPage from "../pageobjects/login.page";
 import users from "../input/users"
 import InventoryPage from "../pageobjects/inventory.page";
+import inventoryPage from "../pageobjects/inventory.page";
 
 const expect = require("chai").expect;
 const pages = {
@@ -26,7 +27,13 @@ When(/^I login as (\w+\_*\w+)$/, async (user) => { //(\w+\_*\w+) - после к
   });
 
   Then(/^On each buttons I see the lable (.*)$/, async (label) => {
-    expect(await (await InventoryPage.btnAddToCartListText())
-    .filter(async el => await el.toLowerCase() === 'add to cart').length).to.equal(await (await InventoryPage.btnAddToCartListText()).length)
+      let btnLabelsArray = await InventoryPage.btnAddToCartListText();
+    expect(btnLabelsArray.filter(async el => await el.toLowerCase() === 'add to cart').length).to.equal(btnLabelsArray.length)
   });
+
+  Then(/^Each item has a non-empty description$/, async ( ) => {
+   let itemDescriptionListText = await InventoryPage.itemDescriptionListText();
+  expect(  itemDescriptionListText.filter(el=>el.length > 0).length).to.equal(itemDescriptionListText.length)
+});
+
  

@@ -14,4 +14,7 @@ Feature: End to End test for standart user
         Given I am on the inventory page
         Then On each buttons I see the lable Add to Cart
 
+        Scenario: Once on the Inventory Page, validate that each items have a non-empty descriptions.
+        Then Each item has a non-empty description 
+
 
