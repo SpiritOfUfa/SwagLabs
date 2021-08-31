@@ -35,5 +35,10 @@ When(/^I login as (\w+\_*\w+)$/, async (user) => { //(\w+\_*\w+) - после к
    let itemDescriptionListText = await InventoryPage.itemDescriptionListText();
   expect(  itemDescriptionListText.filter(el=>el.length > 0).length).to.equal(itemDescriptionListText.length)
 });
+  Then(/^Each item I see price more then zero$/, async ( ) => {
+      let itemPriceListText = await InventoryPage.itemPriceListText();
+      expect(itemPriceListText.filter(el => el[0] === '$' && Number(el.slice(1) > 0)).length).to.equal(itemPriceListText.length);
+ });
+
 
  
