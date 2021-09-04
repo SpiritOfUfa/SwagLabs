@@ -27,6 +27,7 @@ class InventoryPage extends Page {
   get WrapmenuBtn(){
       return $(".bm-menu-wrap")
   }
+  
   //этот метод берет массив элементов как параметр и возвращает массив текстов содержащиеся в этих элементах
   async getItemText(arrayElem) {
     const itemText = arrayElem.map(async (elem) => await elem.getText());

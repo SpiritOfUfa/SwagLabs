@@ -32,15 +32,15 @@ Feature: End to End test for standart user
         Then The side drawer is appears
 
     Scenario Outline: Check that each menu item takes user to the correct page
-
-        When  I open side drawer
+        Given I am on the inventory page
+        When I click on menu button
         When  I click on <link>
         Then I see correct <page>
         Examples:
-            | link | page | 
-            | 'ALL ITEMS'  | https://www.saucedemo.com/inventory.html  |
-            | 'ABOUT'  | https://saucelabs.com/ |
-            | 'LOGOUT'  | https://www.saucedemo.com/  |
+            | link        | page                                     |
+            | 'ALL ITEMS' | https://www.saucedemo.com/inventory.html |
+            | 'ABOUT'     | https://saucelabs.com/                   |
+            | 'LOGOUT'    | https://www.saucedemo.com/               |
 
 
 
