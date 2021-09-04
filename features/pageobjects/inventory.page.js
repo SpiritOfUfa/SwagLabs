@@ -21,6 +21,12 @@ class InventoryPage extends Page {
   get productPageItemName(){
       return $('.inventory_details_name.large_size')
   }
+  get menuBtn(){
+      return $('#react-burger-menu-btn')
+  }
+  get WrapmenuBtn(){
+      return $(".bm-menu-wrap")
+  }
   //этот метод берет массив элементов как параметр и возвращает массив текстов содержащиеся в этих элементах
   async getItemText(arrayElem) {
     const itemText = arrayElem.map(async (elem) => await elem.getText());

@@ -53,7 +53,20 @@ Then(/^I clicked on each item and I see correct item page$/, async ( ) => {
     expect (InventoryPageProductText).to.equal(productPageProductText);
     await InventoryPage.open();
    }
-   
+});
+Given(/^The side drawer is hidden$/, async ( ) => {
+    const WrapmenuBtn = await InventoryPage.WrapmenuBtn;
+    const atrrAreaHiden = await WrapmenuBtn.getAttribute('aria-hidden');
+     expect(atrrAreaHiden).to.equal('true');
+});
+When(/^I click on menu button$/, async ( ) => {
+    const menuBtn = await InventoryPage.menuBtn;
+    await menuBtn.click();
+});
+Then(/^The side drawer is appears$/, async ( ) => {
+    const WrapmenuBtn = await InventoryPage.WrapmenuBtn;
+    const atrrAreaHiden = await WrapmenuBtn.getAttribute('aria-hidden');
+     expect(atrrAreaHiden).to.equal('false');
 });
 
 

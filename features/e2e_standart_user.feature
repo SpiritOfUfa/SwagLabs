@@ -26,4 +26,9 @@ Feature: End to End test for standart user
     Scenario: Click on each product and check the target page is valid
         Then I clicked on each item and I see correct item page
 
+        Scenario: Validate that the side bar exist and is clickable
+        Given The side drawer is hidden
+        When I click on menu button
+        Then The side drawer is appears
+
 
