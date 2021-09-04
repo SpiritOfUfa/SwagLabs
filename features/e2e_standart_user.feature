@@ -26,9 +26,23 @@ Feature: End to End test for standart user
     Scenario: Click on each product and check the target page is valid
         Then I clicked on each item and I see correct item page
 
-        Scenario: Validate that the side bar exist and is clickable
+    Scenario: Validate that the side bar exist and is clickable
         Given The side drawer is hidden
         When I click on menu button
         Then The side drawer is appears
+
+    Scenario Outline: Check that each menu item takes user to the correct page
+
+        When  I open side drawer
+        When  I click on <link>
+        Then I see correct <page>
+        Examples:
+            | link | page | 
+            | 'ALL ITEMS'  | https://www.saucedemo.com/inventory.html  |
+            | 'ABOUT'  | https://saucelabs.com/ |
+            | 'LOGOUT'  | https://www.saucedemo.com/  |
+
+
+
 
 
