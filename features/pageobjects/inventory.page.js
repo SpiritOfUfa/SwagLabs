@@ -27,6 +27,15 @@ class InventoryPage extends Page {
   get WrapmenuBtn(){
       return $(".bm-menu-wrap")
   }
+  get allItemsSidebarLink(){
+    return $("#inventory_sidebar_link")
+  }
+  get aboutSidebarLink(){
+    return $("#about_sidebar_link")
+  }
+  get logOutSideBarLink(){
+    return $("#logout_sidebar_link")
+  }
   
   //этот метод берет массив элементов как параметр и возвращает массив текстов содержащиеся в этих элементах
   async getItemText(arrayElem) {

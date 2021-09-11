@@ -38,9 +38,9 @@ Feature: End to End test for standart user
         Then I see correct <page>
         Examples:
             | link        | page                                     |
-            | 'ALL ITEMS' | https://www.saucedemo.com/inventory.html |
-            | 'ABOUT'     | https://saucelabs.com/                   |
-            | 'LOGOUT'    | https://www.saucedemo.com/               |
+            | ALLITEMS | https://www.saucedemo.com/inventory.html |
+            | ABOUT     | https://saucelabs.com/                   |
+            | LOGOUT    | https://www.saucedemo.com/               |
 
 
 

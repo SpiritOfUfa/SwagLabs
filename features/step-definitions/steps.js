@@ -9,6 +9,11 @@ const pages = {
   login: LoginPage,
   inventory: InventoryPage
 };
+const links = {
+  ALLITEMS : InventoryPage.allItemsSidebarLink,
+  ABOUT : InventoryPage.aboutSidebarLink,
+  LOGOUT : InventoryPage.logOutSideBarLink
+}
 
 Given(/^I am on the (\w+) page$/, async (page) => {
   await pages[page].open();
@@ -67,6 +72,14 @@ Then(/^The side drawer is appears$/, async ( ) => {
     const WrapmenuBtn = await InventoryPage.WrapmenuBtn;
     const atrrAreaHiden = await WrapmenuBtn.getAttribute('aria-hidden');
      expect(atrrAreaHiden).to.equal('false');
+});
+When(/^I click on (\w+)$/, async (link) => {
+  const item = await links[link];
+  await item.click();
+});
+Then(/^I see correct (.+)$/, async (page) => {
+  const pageUrl = await browser.getUrl();
+  expect(pageUrl).to.equal(page)
 });
 
 
